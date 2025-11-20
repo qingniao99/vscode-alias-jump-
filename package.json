@@ -1,0 +1,65 @@
+{
+  "name": "vscode-alias-jump",
+  "publisher": "local",
+  "displayName": "Alias Jump",
+  "description": "Jump to definition using path aliases",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "Alias Jump",
+      "properties": {
+        "alias-jump.mappings": {
+          "type": "object",
+          "default": {
+            "@": "/src"
+          },
+          "description": "Path mappings for aliases. Key is the alias, value is the target path relative to project root (must start with /)."
+        },
+        "alias-jump.allowedSuffix": {
+          "type": "array",
+          "default": [
+            "js",
+            "jsx",
+            "ts",
+            "tsx",
+            "vue"
+          ],
+          "description": "List of file extensions to try if the file path has no extension."
+        },
+        "alias-jump.rootPath": {
+          "type": "string",
+          "default": "package.json",
+          "description": "Filename to identify the project root directory."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish --no-dependencies",
+    "release": "npm run package && npm run publish"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.1.3",
+    "vsce": "^1.103.1"
+  },
+  "dependencies": {
+    "@vscode/vsce": "^3.7.0"
+  }
+}
