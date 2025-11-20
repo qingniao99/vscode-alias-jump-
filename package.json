@@ -7,7 +7,7 @@
   },
   "displayName": "Alias Jump",
   "description": "Jump to definition using path aliases",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -55,8 +55,8 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "package": "vsce package --no-dependencies",
-    "pb": "vsce publish --no-dependencies",
-    "release": "npm version patch --no-git-tag-version && git add . && ver=$(node -p \"require('./package.json').version\") && git commit -m \"chore: release v$ver\" && git tag v$ver && git push --follow-tags && npm run package && npm run pb"
+    "publish": "vsce publish --no-dependencies",
+    "release": "node scripts/release.js"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
