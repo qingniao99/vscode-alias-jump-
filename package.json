@@ -1,9 +1,13 @@
 {
   "name": "vscode-alias-jump",
-  "publisher": "local",
+  "publisher": "qingniao99",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qingniao99/vscode-alias-jump-"
+  },
   "displayName": "Alias Jump",
   "description": "Jump to definition using path aliases",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.80.0"
   },
@@ -51,7 +55,7 @@
     "watch": "tsc -watch -p ./",
     "package": "vsce package --no-dependencies",
     "publish": "vsce publish --no-dependencies",
-    "release": "npm run package && npm run publish"
+    "release": "npm version patch --no-git-tag-version && git add . && ver=$(node -p \"require('./package.json').version\") && git commit -m \"chore: release v$ver\" && git tag v$ver && git push --follow-tags && npm run package && npm run publish"
   },
   "devDependencies": {
     "@types/node": "^16.11.7",
