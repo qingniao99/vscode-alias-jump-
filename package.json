@@ -3,7 +3,7 @@
   "publisher": "qingniao99",
   "repository": {
     "type": "git",
-    "url": "https://github.com/qingniao99/vscode-alias-jump-"
+    "url": "https://github.com/qingniao99/vscode-alias-jump"
   },
   "displayName": "Alias Jump",
   "description": "Jump to definition using path aliases",
